@@ -64,7 +64,7 @@ meta-iso.github.io/
 
 ## ➕ Contributing & Adding a System
 
-Missing a distribution or a specific version? You can submit a new ISO entry directly through the **Add System** form on the [METAISO.net website](https://github.io):
+Missing a distribution or a specific version? You can submit a new ISO entry directly through the **Add System** form on the [METAISO.net website](https://meta-iso.github.io):
 
 1. Navigate to the **Add System** section on the page.
 2. Provide the **OS Name**, **OS Family** (`Linux`, `Unix`, `BSD`, `QEMU`, `Other`), **Version**, **Owner/Company**, and a valid **`.iso` File URL**.
