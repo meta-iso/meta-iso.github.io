@@ -4,11 +4,12 @@
 
 **Operating systems archive with the newest versions to download.**
 
-[![Website](https://shields.io)](https://github.io)
-[![License](https://shields.io)](LICENSE)
-[![OS Families](https://shields.io)](#-supported-operating-systems)
-[![Releases](https://shields.io)](#-supported-operating-systems)
-[![Checksums](https://shields.io)](#-features)
+[![Live Site](https://img.shields.io/badge/Live_Site-Online-2ea44f?style=for-the-badge&logo=github)](https://meta-iso.github.io/)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=for-the-badge)](LICENSE)
+[![OS Families](https://img.shields.io/badge/OS_Families-20-orange?style=for-the-badge)](#-supported-operating-systems)
+[![Releases](https://img.shields.io/badge/Releases-100-purple?style=for-the-badge)](#-supported-operating-systems)
+[![Checksums](https://img.shields.io/badge/Checksums-SHA--256-brightgreen?style=for-the-badge)](#-features)
+
 
 ---
 
