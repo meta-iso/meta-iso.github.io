@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>METAISO.net – operating systems archive</title>
+<meta name="description" content="METAISO.net is a well-known operating systems archive with the newest versions to download: Windows, macOS, Linux and others.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231f4dff'/%3E%3Ccircle cx='32' cy='32' r='12' fill='none' stroke='%23fff' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='3' fill='%23ffc933'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef1f5; --surface:#ffffff; --ink:#121a27; --muted:#5a6578; --line:#d6dce6;
+  --accent:#1f4dff; --accent-ink:#ffffff; --accent-soft:#e4eaff; --signal:#ffc933;
+  --radius:14px;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0c121e; --surface:#141c2d; --ink:#e8edf6; --muted:#97a3ba; --line:#25304a;
+    --accent:#7d9bff; --accent-ink:#0c121e; --accent-soft:#1c2845; --signal:#ffc933;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.logo{font:800 1.3rem/1 var(--display);text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:-.01em}
+.logo svg{width:28px;height:28px;flex:none}
+.logo b{color:var(--accent);font-weight:800}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:500;font-size:.98rem;padding:8px 13px;border-radius:999px;color:var(--muted);transition:background .15s,color .15s}
+nav a:hover{background:var(--accent-soft);color:var(--ink)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:72px 0 40px}
+.disc{position:absolute;right:-140px;top:-120px;width:560px;height:560px;opacity:.9;pointer-events:none;color:var(--accent)}
+.hero h1{position:relative;margin:0;font:800 clamp(2.8rem,8vw,5.6rem)/.95 var(--display);letter-spacing:-.035em}
+.hero h1 span{color:var(--accent)}
+.hero p.lead{position:relative;max-width:34ch;margin:20px 0 0;font-size:1.25rem;color:var(--muted)}
+.stats{position:relative;display:flex;gap:28px;flex-wrap:wrap;margin:22px 0 0;padding:0;list-style:none;color:var(--muted);font-size:.98rem}
+.stats strong{color:var(--ink);font:700 1.5rem/1 var(--display);margin-right:6px}
+
+/* search */
+.search{position:relative;margin-top:34px;max-width:640px}
+.search input{width:100%;font:500 1.1rem var(--body);color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:999px;padding:17px 24px 17px 54px;transition:border-color .15s,box-shadow .15s}
+.search input::placeholder{color:var(--muted)}
+.search input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.search svg{position:absolute;left:21px;top:50%;translate:0 -50%;width:20px;height:20px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips a{text-decoration:none;font-size:.9rem;font-weight:500;padding:5px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);transition:all .15s}
+.chips a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* list */
+main section.block{padding:30px 0}
+.sect-title{font:800 clamp(1.6rem,3.2vw,2.2rem)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 24px}
+.fam{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);margin:0 0 18px;overflow:hidden}
+.fam>header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:20px 24px 14px;border-bottom:1px solid var(--line)}
+.fam>header h2{margin:0;font:700 1.45rem/1.2 var(--display);letter-spacing:-.01em}
+.fam>header p{margin:0;color:var(--muted);font-size:.95rem}
+.rel{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 24px;border-top:1px solid var(--line)}
+.rel:first-child{border-top:0}
+.rel h3{margin:0;font:600 1.05rem/1.3 var(--body)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:var(--accent-soft);color:var(--accent);border:1.5px solid transparent;font-size:.95rem;font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;transition:background .15s,color .15s,transform .15s}
+.btn .size{font-weight:500;opacity:.78}
+.btn:hover{background:var(--accent);color:var(--accent-ink)}
+.btn:active{transform:translateY(1px)}
+.btn.off{background:transparent;border:1.5px dashed var(--line);color:var(--muted);text-decoration:none;cursor:not-allowed}
+.btn.off:hover{background:transparent;color:var(--muted)}
+.empty{display:none;text-align:center;color:var(--muted);padding:40px 0}
+.empty.show{display:block}
+.note{font-size:.92rem;color:var(--muted);margin:4px 0 0}
+
+/* form */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+form{display:grid;gap:18px;max-width:640px}
+label,.legend{font-weight:600;font-size:.98rem;display:block;margin-bottom:6px}
+.req{color:var(--accent)}
+.field input[type=text],.field input[type=url]{width:100%;font:400 1rem var(--body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:11px 14px}
+.field input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+fieldset{border:0;padding:0;margin:0}
+.radios{display:flex;gap:10px;flex-wrap:wrap}
+.radios label{display:inline-flex;align-items:center;gap:8px;margin:0;font-weight:500;padding:8px 15px;border:1.5px solid var(--line);border-radius:999px;cursor:pointer;background:var(--bg)}
+.radios input{accent-color:var(--accent)}
+.radios label:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.cta{justify-self:start;font:700 1.05rem var(--body);padding:13px 34px;border:0;border-radius:999px;background:var(--accent);color:var(--accent-ink);cursor:pointer;text-decoration:underline;text-underline-offset:4px;transition:transform .15s,filter .15s}
+.cta:hover{filter:brightness(1.08)}
+.cta:active{transform:translateY(1px)}
+.status{display:none;margin:0;padding:14px 16px;border-radius:10px;background:var(--accent-soft);font-weight:500}
+.status.show{display:block}
+
+/* about / faq */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cols p{margin:0 0 14px;max-width:60ch}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+details summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";font:500 1.4rem/1 var(--display);color:var(--accent)}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:var(--muted)}
+.faq-q{margin:0}
+
+/* support */
+.amounts{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 22px}
+.amounts button{font:700 1.05rem var(--display);padding:11px 22px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;transition:all .15s}
+.amounts button:hover{border-color:var(--accent)}
+.amounts button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+footer{margin-top:40px;padding:30px 0 50px;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+.toast{position:fixed;left:50%;bottom:26px;translate:-50% 20px;opacity:0;pointer-events:none;background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:500;transition:all .25s;z-index:50;max-width:90vw;text-align:center}
+.toast.show{opacity:1;translate:-50% 0}
+
+@media (max-width:760px){
+  .bar .wrap{height:auto;padding-top:10px;padding-bottom:10px;flex-direction:column;align-items:flex-start;gap:6px}
+  html{scroll-padding-top:110px}
+  nav a{padding:6px 11px;font-size:.92rem}
+  .hero{padding-top:44px}
+  .disc{width:380px;height:380px;right:-170px;top:-80px;opacity:.55}
+  .cols{grid-template-columns:1fr}
+  .rel{padding:14px 18px}
+  .fam>header{padding:18px 18px 12px}
+  .panel{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="METAISO.net – home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--accent)"/><circle cx="32" cy="32" r="12" fill="none" stroke="var(--accent-ink)" stroke-width="5"/><circle cx="32" cy="32" r="3" fill="var(--signal)"/></svg>
+      <span>META<b>ISO</b>.net</span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#list">List</a>
+      <a href="#search">Search</a>
+      <a href="#add-system">Add System</a>
+      <a href="#about">About</a>
+      <a href="#support">Support</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <svg class="disc" viewBox="0 0 400 400" fill="none" stroke="currentColor" aria-hidden="true">
+    <circle cx="200" cy="200" r="196" stroke-width="1.5" opacity=".35"/>
+    <circle cx="200" cy="200" r="160" stroke-width="1.5" opacity=".28"/>
+    <circle cx="200" cy="200" r="124" stroke-width="1.5" opacity=".22"/>
+    <circle cx="200" cy="200" r="88" stroke-width="1.5" opacity=".18"/>
+    <circle cx="200" cy="200" r="46" stroke-width="14" opacity=".14"/>
+    <circle cx="200" cy="200" r="9" fill="var(--signal)" stroke="none"/>
+  </svg>
+  <div class="wrap">
+    <h1>META<span>ISO</span>.net</h1>
+    <p class="lead">Operating systems archive with the newest versions to download.</p>
+    <ul class="stats">
+      <li><strong>24</strong>families</li>
+      <li><strong>59</strong>releases</li>
+      <li><strong>SHA-256</strong>checked</li>
+    </ul>
+    <div class="search" id="search" role="search">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m13 13 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="q" type="search" placeholder="Search …" autocomplete="off" aria-label="Search systems">
+    </div>
+    <div class="chips" id="chips"><a href="#windows">Windows</a><a href="#ubuntu">Ubuntu</a><a href="#debian">Debian</a><a href="#fedora">Fedora</a><a href="#kali-os">Kali OS</a><a href="#arch">Arch</a><a href="#gentoo">Gentoo</a><a href="#alpine-linux">Alpine Linux</a><a href="#bsd">BSD</a><a href="#zorin-os">Zorin OS</a><a href="#pop-os">Pop! OS</a><a href="#manjaro">Manjaro</a><a href="#macromag-os">MacroMag OS</a><a href="#nobara">Nobara</a><a href="#talis-os">Talis OS</a><a href="#rocky-linux">Rocky Linux</a><a href="#centos">CentOS</a><a href="#oracle-linux">Oracle Linux</a><a href="#redhat-linux">Redhat Linux</a><a href="#suse">SUSE</a><a href="#rassbery-pi">Rassbery Pi</a><a href="#solaris">Solaris</a><a href="#macos">MacOS</a><a href="#reactos">ReactOS</a></div>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="list">
+    <div class="wrap">
+      <h2 class="sect-title">List</h2>
+      <section class="fam" id="windows"><header><h2>Windows</h2><p>Microsoft</p></header><div class="rels"><div class="rel" data-s="windows microsoft windows 11"><h3>WINDOWS 11</h3><div class="btns"><a class="btn" href="https://www.microsoft.com/software-download/windows11" target="_blank" rel="noopener noreferrer" title="Download WINDOWS 11 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(4,7 GB)</span></a><a class="btn" href="https://www.microsoft.com/software-download/windows11arm64" target="_blank" rel="noopener noreferrer" title="Download WINDOWS 11 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(2,6 GB)</span></a></div></div><div class="rel" data-s="windows microsoft windows 10"><h3>WINDOWS 10</h3><div class="btns"><a class="btn" href="https://www.microsoft.com/software-download/windows10ISO" target="_blank" rel="noopener noreferrer" title="Download WINDOWS 10 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(4,1 GB)</span></a><a class="btn" href="https://uupdump.net/" target="_blank" rel="noopener noreferrer" title="Download WINDOWS 10 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,8 GB)</span></a></div></div><div class="rel" data-s="windows microsoft windows 7"><h3>WINDOWS 7</h3><div class="btns"><a class="btn" href="https://archive.org/search?query=windows+7+iso&amp;and[]=mediatype%3A%22software%22" target="_blank" rel="noopener noreferrer" title="Download WINDOWS 7 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,5 GB)</span></a><a class="btn" href="https://archive.org/search?query=windows+7+iso&amp;and[]=mediatype%3A%22software%22" target="_blank" rel="noopener noreferrer" title="Download WINDOWS 7 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,3 GB)</span></a></div></div><div class="rel" data-s="windows microsoft windows xp"><h3>WINDOWS XP</h3><div class="btns"><a class="btn" href="https://archive.org/search?query=windows+xp+iso&amp;and[]=mediatype%3A%22software%22" target="_blank" rel="noopener noreferrer" title="Download WINDOWS XP – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(1,8 GB)</span></a><a class="btn" href="https://archive.org/search?query=windows+xp+iso&amp;and[]=mediatype%3A%22software%22" target="_blank" rel="noopener noreferrer" title="Download WINDOWS XP – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,7 GB)</span></a></div></div><div class="rel" data-s="windows microsoft windows me"><h3>WINDOWS ME</h3><div class="btns"><a class="btn" href="https://archive.org/search?query=windows+me+iso&amp;and[]=mediatype%3A%22software%22" target="_blank" rel="noopener noreferrer" title="Download WINDOWS ME – 32-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">32-bit</span><span class="size">(1,2 GB)</span></a></div></div><div class="rel" data-s="windows microsoft windows 2000"><h3>WINDOWS 2000</h3><div class="btns"><a class="btn" href="https://archive.org/search?query=windows+2000+iso&amp;and[]=mediatype%3A%22software%22" target="_blank" rel="noopener noreferrer" title="Download WINDOWS 2000 – 32-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">32-bit</span><span class="size">(1,2 GB)</span></a></div></div><div class="rel" data-s="windows microsoft windows 98"><h3>WINDOWS 98</h3><div class="btns"><a class="btn" href="https://archive.org/search?query=windows+98+iso&amp;and[]=mediatype%3A%22software%22" target="_blank" rel="noopener noreferrer" title="Download WINDOWS 98 – 32-Bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">32-Bit</span><span class="size">(433 MB)</span></a></div></div><div class="rel" data-s="windows microsoft windows 95"><h3>WINDOWS 95</h3><div class="btns"><a class="btn" href="https://archive.org/search?query=windows+95+iso&amp;and[]=mediatype%3A%22software%22" target="_blank" rel="noopener noreferrer" title="Download WINDOWS 95 – 32-Bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">32-Bit</span><span class="size">(300 MB)</span></a></div></div></div></section>
+<section class="fam" id="ubuntu"><header><h2>Ubuntu</h2><p>Canonical</p></header><div class="rels"><div class="rel" data-s="ubuntu canonical ubuntu 26 lts"><h3>Ubuntu 26 LTS</h3><div class="btns"><a class="btn" href="https://releases.ubuntu.com/26.04/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 26 LTS – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(4,3 GB)</span></a><a class="btn" href="https://cdimage.ubuntu.com/releases/26.04/release/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 26 LTS – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(2,9 GB)</span></a></div></div><div class="rel" data-s="ubuntu canonical ubuntu 26 xfce"><h3>Ubuntu 26 XFCE</h3><div class="btns"><a class="btn" href="https://cdimage.ubuntu.com/xubuntu/releases/26.04/release/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 26 XFCE – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,7 GB)</span></a><a class="btn" href="https://cdimage.ubuntu.com/xubuntu/releases/26.04/release/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 26 XFCE – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(2,9 GB)</span></a></div></div><div class="rel" data-s="ubuntu canonical ubuntu 24 lts"><h3>Ubuntu 24 LTS</h3><div class="btns"><a class="btn" href="https://releases.ubuntu.com/24.04/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 24 LTS – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,9 GB)</span></a><a class="btn" href="https://cdimage.ubuntu.com/releases/24.04/release/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 24 LTS – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(2,5 GB)</span></a></div></div><div class="rel" data-s="ubuntu canonical ubuntu 24 xfce"><h3>Ubuntu 24 XFCE</h3><div class="btns"><a class="btn" href="https://cdimage.ubuntu.com/xubuntu/releases/24.04/release/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 24 XFCE – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,6 GB)</span></a><a class="btn" href="https://cdimage.ubuntu.com/xubuntu/releases/24.04/release/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 24 XFCE – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(2,2 GB)</span></a></div></div><div class="rel" data-s="ubuntu canonical ubuntu 22 lts"><h3>Ubuntu 22 LTS</h3><div class="btns"><a class="btn" href="https://releases.ubuntu.com/22.04/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 22 LTS – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,1 GB)</span></a><a class="btn" href="https://cdimage.ubuntu.com/releases/22.04/release/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 22 LTS – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,8 GB)</span></a></div></div><div class="rel" data-s="ubuntu canonical ubuntu 22 xfce"><h3>Ubuntu 22 XFCE</h3><div class="btns"><a class="btn" href="https://cdimage.ubuntu.com/xubuntu/releases/22.04/release/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 22 XFCE – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(2,8 GB)</span></a><a class="btn" href="https://cdimage.ubuntu.com/xubuntu/releases/22.04/release/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 22 XFCE – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,5 GB)</span></a></div></div><div class="rel" data-s="ubuntu canonical ubuntu 20 lts"><h3>Ubuntu 20 LTS</h3><div class="btns"><a class="btn" href="https://releases.ubuntu.com/20.04/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 20 LTS – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(2,5 GB)</span></a><a class="btn" href="https://cdimage.ubuntu.com/releases/20.04/release/" target="_blank" rel="noopener noreferrer" title="Download Ubuntu 20 LTS – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,2 GB)</span></a></div></div></div></section>
+<section class="fam" id="debian"><header><h2>Debian</h2><p>Debian</p></header><div class="rels"><div class="rel" data-s="debian debian debian 13"><h3>Debian 13</h3><div class="btns"><a class="btn" href="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/" target="_blank" rel="noopener noreferrer" title="Download Debian 13 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(0,9 GB)</span></a><a class="btn" href="https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/" target="_blank" rel="noopener noreferrer" title="Download Debian 13 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0.6 GB)</span></a></div></div><div class="rel" data-s="debian debian debian 12"><h3>Debian 12</h3><div class="btns"><a class="btn" href="https://cdimage.debian.org/cdimage/archive/" target="_blank" rel="noopener noreferrer" title="Download Debian 12 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(0,7 GB)</span></a><a class="btn" href="https://cdimage.debian.org/cdimage/archive/" target="_blank" rel="noopener noreferrer" title="Download Debian 12 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,5 GB)</span></a></div></div><div class="rel" data-s="debian debian debian 11"><h3>Debian 11</h3><div class="btns"><a class="btn" href="https://cdimage.debian.org/cdimage/archive/" target="_blank" rel="noopener noreferrer" title="Download Debian 11 – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(0,5 GB)</span></a><a class="btn" href="https://cdimage.debian.org/cdimage/archive/" target="_blank" rel="noopener noreferrer" title="Download Debian 11 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,3 GB)</span></a></div></div><div class="rel" data-s="debian debian debian 10"><h3>Debian 10</h3><div class="btns"><a class="btn" href="https://cdimage.debian.org/cdimage/archive/" target="_blank" rel="noopener noreferrer" title="Download Debian 10 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(0,5 GB)</span></a><a class="btn" href="https://cdimage.debian.org/cdimage/archive/" target="_blank" rel="noopener noreferrer" title="Download Debian 10 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,2 GB)</span></a></div></div></div></section>
+<section class="fam" id="fedora"><header><h2>Fedora</h2><p>Fedora</p></header><div class="rels"><div class="rel" data-s="fedora fedora fedora 44"><h3>Fedora 44</h3><div class="btns"><a class="btn" href="https://download.fedoraproject.org/pub/fedora/linux/releases/44/Workstation/x86_64/iso/" target="_blank" rel="noopener noreferrer" title="Download Fedora 44 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(2,1 GB)</span></a><a class="btn" href="https://download.fedoraproject.org/pub/fedora/linux/releases/44/Workstation/aarch64/iso/" target="_blank" rel="noopener noreferrer" title="Download Fedora 44 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,7 GB)</span></a></div></div><div class="rel" data-s="fedora fedora fedora 42"><h3>Fedora 42</h3><div class="btns"><a class="btn" href="https://download.fedoraproject.org/pub/fedora/linux/releases/42/Workstation/x86_64/iso/" target="_blank" rel="noopener noreferrer" title="Download Fedora 42 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(1,8 GB)</span></a><a class="btn" href="https://download.fedoraproject.org/pub/fedora/linux/releases/42/Workstation/aarch64/iso/" target="_blank" rel="noopener noreferrer" title="Download Fedora 42 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,5 GB)</span></a></div></div></div></section>
+<section class="fam" id="kali-os"><header><h2>Kali OS</h2><p>NETHUNTERS</p></header><div class="rels"><div class="rel" data-s="kali os nethunters kali os (2026.1)"><h3>Kali OS (2026.1)</h3><div class="btns"><a class="btn" href="https://www.kali.org/get-kali/#kali-installer-images" target="_blank" rel="noopener noreferrer" title="Download Kali OS (2026.1) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,8 GB)</span></a><a class="btn" href="https://www.kali.org/get-kali/#kali-installer-images" target="_blank" rel="noopener noreferrer" title="Download Kali OS (2026.1) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(3,3 GB)</span></a></div></div></div></section>
+<section class="fam" id="arch"><header><h2>Arch</h2><p>Arch Linux</p></header><div class="rels"><div class="rel" data-s="arch arch linux arch linux (2.6.0)"><h3>Arch Linux (2.6.0)</h3><div class="btns"><a class="btn" href="https://archlinux.org/download/" target="_blank" rel="noopener noreferrer" title="Download Arch Linux (2.6.0) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(1,8 GB)</span></a><a class="btn" href="https://archlinuxarm.org/about/downloads" target="_blank" rel="noopener noreferrer" title="Download Arch Linux (2.6.0) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,5 GB)</span></a></div></div></div></section>
+<section class="fam" id="gentoo"><header><h2>Gentoo</h2><p>Vmorg GmbH</p></header><div class="rels"><div class="rel" data-s="gentoo vmorg gmbh gentoo (1.1)"><h3>Gentoo (1.1)</h3><div class="btns"><a class="btn" href="https://www.gentoo.org/downloads/" target="_blank" rel="noopener noreferrer" title="Download Gentoo (1.1) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(1,2 GB)</span></a></div></div></div></section>
+<section class="fam" id="alpine-linux"><header><h2>Alpine Linux</h2><p>GNU Alpine Org</p></header><div class="rels"><div class="rel" data-s="alpine linux gnu alpine org alpine linux (tiny)"><h3>Alpine Linux (Tiny)</h3><div class="btns"><a class="btn" href="https://alpinelinux.org/downloads/" target="_blank" rel="noopener noreferrer" title="Download Alpine Linux (Tiny) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(0,5 GB)</span></a><a class="btn" href="https://alpinelinux.org/downloads/" target="_blank" rel="noopener noreferrer" title="Download Alpine Linux (Tiny) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,3 GB)</span></a></div></div><div class="rel" data-s="alpine linux gnu alpine org alpine linux (static)"><h3>Alpine Linux (Static)</h3><div class="btns"><a class="btn" href="https://alpinelinux.org/downloads/" target="_blank" rel="noopener noreferrer" title="Download Alpine Linux (Static) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(0,8 GB)</span></a></div></div></div></section>
+<section class="fam" id="bsd"><header><h2>BSD</h2><p>Berkley Foundation Datacode</p></header><div class="rels"><div class="rel" data-s="bsd berkley foundation datacode freebsd (14.1)"><h3>FreeBSD (14.1)</h3><div class="btns"><a class="btn" href="https://download.freebsd.org/releases/ISO-IMAGES/14.1/" target="_blank" rel="noopener noreferrer" title="Download FreeBSD (14.1) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(1,8 GB)</span></a><a class="btn" href="https://download.freebsd.org/releases/arm64/aarch64/ISO-IMAGES/14.1/" target="_blank" rel="noopener noreferrer" title="Download FreeBSD (14.1) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,4 GB)</span></a></div></div><div class="rel" data-s="bsd berkley foundation datacode freebsd (13.1)"><h3>FreeBSD (13.1)</h3><div class="btns"><a class="btn" href="https://www.freebsd.org/where/" target="_blank" rel="noopener noreferrer" title="Download FreeBSD (13.1) – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(1,3 GB)</span></a><a class="btn" href="https://www.freebsd.org/where/" target="_blank" rel="noopener noreferrer" title="Download FreeBSD (13.1) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,9 GB)</span></a></div></div><div class="rel" data-s="bsd berkley foundation datacode openbsd 10"><h3>OpenBSD 10</h3><div class="btns"><a class="btn" href="https://www.openbsd.org/ftp.html" target="_blank" rel="noopener noreferrer" title="Download OpenBSD 10 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(0,9 GB)</span></a><a class="btn" href="https://www.openbsd.org/ftp.html" target="_blank" rel="noopener noreferrer" title="Download OpenBSD 10 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,6 GB)</span></a></div></div></div></section>
+<section class="fam" id="zorin-os"><header><h2>Zorin OS</h2><p>Zorin Inc.</p></header><div class="rels"><div class="rel" data-s="zorin os zorin inc. zorin os (131.0)"><h3>Zorin OS (131.0)</h3><div class="btns"><a class="btn" href="https://zorin.com/os/download/" target="_blank" rel="noopener noreferrer" title="Download Zorin OS (131.0) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,1 GB)</span></a></div></div><div class="rel" data-s="zorin os zorin inc. zorin os (121.0)"><h3>Zorin OS (121.0)</h3><div class="btns"><a class="btn" href="https://zorin.com/os/download/" target="_blank" rel="noopener noreferrer" title="Download Zorin OS (121.0) – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(2,6 GB)</span></a></div></div><div class="rel" data-s="zorin os zorin inc. zorin os (111.0)"><h3>Zorin OS (111.0)</h3><div class="btns"><a class="btn" href="https://zorin.com/os/download/" target="_blank" rel="noopener noreferrer" title="Download Zorin OS (111.0) – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(2,3 GB)</span></a></div></div></div></section>
+<section class="fam" id="pop-os"><header><h2>Pop! OS</h2><p>System 76</p></header><div class="rels"><div class="rel" data-s="pop! os system 76 pop! os (static)"><h3>Pop! OS (Static)</h3><div class="btns"><a class="btn" href="https://system76.com/pop/download/" target="_blank" rel="noopener noreferrer" title="Download Pop! OS (Static) – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(2,9 GB)</span></a><a class="btn" href="https://system76.com/pop/download/" target="_blank" rel="noopener noreferrer" title="Download Pop! OS (Static) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(2,5 GB)</span></a></div></div><div class="rel" data-s="pop! os system 76 pop! os (cosmic)"><h3>Pop! OS (Cosmic)</h3><div class="btns"><a class="btn" href="https://system76.com/pop/download/" target="_blank" rel="noopener noreferrer" title="Download Pop! OS (Cosmic) – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(2,2 GB)</span></a><a class="btn" href="https://system76.com/pop/download/" target="_blank" rel="noopener noreferrer" title="Download Pop! OS (Cosmic) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,8 GB)</span></a></div></div></div></section>
+<section class="fam" id="manjaro"><header><h2>Manjaro</h2><p>Manjaro KG</p></header><div class="rels"><div class="rel" data-s="manjaro manjaro kg manjaro linux (leap)"><h3>Manjaro Linux (Leap)</h3><div class="btns"><a class="btn" href="https://manjaro.org/products/download/x86" target="_blank" rel="noopener noreferrer" title="Download Manjaro Linux (Leap) – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(1,6 GB)</span></a><a class="btn" href="https://manjaro.org/products/download/arm" target="_blank" rel="noopener noreferrer" title="Download Manjaro Linux (Leap) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,2 GB)</span></a></div></div></div></section>
+<section class="fam" id="macromag-os"><header><h2>MacroMag OS</h2><p>MacroMag Foundation</p></header><div class="rels"><div class="rel" data-s="macromag os macromag foundation macromag os (2.5)"><h3>MacroMag OS (2.5)</h3><div class="btns"><a class="btn" href="https://github.com/Macromag-os/Macromag-32" target="_blank" rel="noopener noreferrer" title="Download MacroMag OS (2.5) – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(0,3 GB)</span></a></div></div><div class="rel" data-s="macromag os macromag foundation macromag os (2.1)"><h3>MacroMag OS (2.1)</h3><div class="btns"><a class="btn" href="https://github.com/Macromag-os/Macromag-32" target="_blank" rel="noopener noreferrer" title="Download MacroMag OS (2.1) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(0,1 GB)</span></a></div></div></div></section>
+<section class="fam" id="nobara"><header><h2>Nobara</h2><p>Nobara Company</p></header><div class="rels"><div class="rel" data-s="nobara nobara company nobara (static)"><h3>Nobara (Static)</h3><div class="btns"><a class="btn" href="https://nobaraproject.org/download-nobara/" target="_blank" rel="noopener noreferrer" title="Download Nobara (Static) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(1,1 GB)</span></a></div></div><div class="rel" data-s="nobara nobara company nobara (leap)"><h3>Nobara (Leap)</h3><div class="btns"><a class="btn" href="https://nobaraproject.org/download-nobara/" target="_blank" rel="noopener noreferrer" title="Download Nobara (Leap) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(0,7 GB)</span></a></div></div></div></section>
+<section class="fam" id="talis-os"><header><h2>Talis OS</h2><p>Talis Group Inc.</p></header><div class="rels"><div class="rel" data-s="talis os talis group inc. talis os 2.0"><h3>Talis OS 2.0</h3><div class="btns"><a class="btn" href="https://gitlab.com/talis-linux" target="_blank" rel="noopener noreferrer" title="Download Talis OS 2.0 – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(0,9 GB)</span></a><a class="btn" href="https://gitlab.com/talis-linux" target="_blank" rel="noopener noreferrer" title="Download Talis OS 2.0 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,6 GB)</span></a></div></div><div class="rel" data-s="talis os talis group inc. talis os 1.0"><h3>Talis OS 1.0</h3><div class="btns"><a class="btn" href="https://gitlab.com/talis-linux" target="_blank" rel="noopener noreferrer" title="Download Talis OS 1.0 – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(0,7 GB)</span></a><a class="btn" href="https://gitlab.com/talis-linux" target="_blank" rel="noopener noreferrer" title="Download Talis OS 1.0 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,5 GB)</span></a></div></div></div></section>
+<section class="fam" id="rocky-linux"><header><h2>Rocky Linux</h2><p>Rocky Limited</p></header><div class="rels"><div class="rel" data-s="rocky linux rocky limited rocky linux (1.11)"><h3>Rocky Linux (1.11)</h3><div class="btns"><a class="btn" href="https://rockylinux.org/download" target="_blank" rel="noopener noreferrer" title="Download Rocky Linux (1.11) – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(0,9 GB)</span></a><a class="btn" href="https://rockylinux.org/download" target="_blank" rel="noopener noreferrer" title="Download Rocky Linux (1.11) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,6 GB)</span></a></div></div></div></section>
+<section class="fam" id="centos"><header><h2>CentOS</h2><p>Cent Company</p></header><div class="rels"><div class="rel" data-s="centos cent company centos (stream)"><h3>CentOS (Stream)</h3><div class="btns"><a class="btn" href="https://www.centos.org/centos-stream/" target="_blank" rel="noopener noreferrer" title="Download CentOS (Stream) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(1,2 GB)</span></a><a class="btn" href="https://www.centos.org/centos-stream/" target="_blank" rel="noopener noreferrer" title="Download CentOS (Stream) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(0,8 GB)</span></a></div></div></div></section>
+<section class="fam" id="oracle-linux"><header><h2>Oracle Linux</h2><p>Oracle Corporation</p></header><div class="rels"><div class="rel" data-s="oracle linux oracle corporation oracle linux (server)"><h3>Oracle Linux (Server)</h3><div class="btns"><a class="btn" href="https://yum.oracle.com/oracle-linux-isos.html" target="_blank" rel="noopener noreferrer" title="Download Oracle Linux (Server) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(2,9 GB)</span></a></div></div><div class="rel" data-s="oracle linux oracle corporation oracle linux (basic)"><h3>Oracle Linux (Basic)</h3><div class="btns"><a class="btn" href="https://yum.oracle.com/oracle-linux-isos.html" target="_blank" rel="noopener noreferrer" title="Download Oracle Linux (Basic) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,2 GB)</span></a></div></div></div></section>
+<section class="fam" id="redhat-linux"><header><h2>Redhat Linux</h2><p>Redhat Inc.</p></header><div class="rels"><div class="rel" data-s="redhat linux redhat inc. rhel 9"><h3>RHEL 9</h3><div class="btns"><a class="btn" href="https://developers.redhat.com/products/rhel/download" target="_blank" rel="noopener noreferrer" title="Download RHEL 9 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(4,1 GB)</span></a><a class="btn" href="https://developers.redhat.com/products/rhel/download" target="_blank" rel="noopener noreferrer" title="Download RHEL 9 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(3,6 GB)</span></a></div></div><div class="rel" data-s="redhat linux redhat inc. rhel 8"><h3>RHEL 8</h3><div class="btns"><a class="btn" href="https://developers.redhat.com/products/rhel/download" target="_blank" rel="noopener noreferrer" title="Download RHEL 8 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,5 GB)</span></a><a class="btn" href="https://developers.redhat.com/products/rhel/download" target="_blank" rel="noopener noreferrer" title="Download RHEL 8 – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(3,1 GB)</span></a></div></div></div></section>
+<section class="fam" id="suse"><header><h2>SUSE</h2><p>SLES</p></header><div class="rels"><div class="rel" data-s="suse sles suse server (1.0)"><h3>SUSE Server (1.0)</h3><div class="btns"><a class="btn" href="https://www.suse.com/download/sles/" target="_blank" rel="noopener noreferrer" title="Download SUSE Server (1.0) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(1,8 GB)</span></a><a class="btn" href="https://www.suse.com/download/sles/" target="_blank" rel="noopener noreferrer" title="Download SUSE Server (1.0) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,3 GB)</span></a></div></div><div class="rel" data-s="suse sles suse mate (1.0)"><h3>SUSE Mate (1.0)</h3><div class="btns"><a class="btn" href="https://www.suse.com/download/" target="_blank" rel="noopener noreferrer" title="Download SUSE Mate (1.0) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(2,4 GB)</span></a><a class="btn" href="https://www.suse.com/download/" target="_blank" rel="noopener noreferrer" title="Download SUSE Mate (1.0) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,6 GB)</span></a></div></div></div></section>
+<section class="fam" id="rassbery-pi"><header><h2>Rassbery Pi</h2><p>Rassbery Company</p></header><div class="rels"><div class="rel" data-s="rassbery pi rassbery company rassbery pi os (1.1)"><h3>Rassbery PI OS (1.1)</h3><div class="btns"><a class="btn" href="https://www.raspberrypi.com/software/operating-systems/" target="_blank" rel="noopener noreferrer" title="Download Rassbery PI OS (1.1) – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(1,7 GB)</span></a><a class="btn" href="https://www.raspberrypi.com/software/operating-systems/" target="_blank" rel="noopener noreferrer" title="Download Rassbery PI OS (1.1) – ARM64"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">ARM64</span><span class="size">(1,4 GB)</span></a></div></div></div></section>
+<section class="fam" id="solaris"><header><h2>Solaris</h2><p>Solaris Corporation</p></header><div class="rels"><div class="rel" data-s="solaris solaris corporation solaris 11"><h3>Solaris 11</h3><div class="btns"><a class="btn" href="https://www.oracle.com/solaris/solaris11/downloads/solaris-downloads.html" target="_blank" rel="noopener noreferrer" title="Download Solaris 11 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(0,6 GB)</span></a></div></div><div class="rel" data-s="solaris solaris corporation solaris 10"><h3>Solaris 10</h3><div class="btns"><a class="btn" href="https://www.oracle.com/solaris/technologies/solaris10-overview.html" target="_blank" rel="noopener noreferrer" title="Download Solaris 10 – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(0,5 GB)</span></a></div></div></div></section>
+<section class="fam" id="macos"><header><h2>MacOS</h2><p>Apple Inc.</p></header><div class="rels"><div class="rel" data-s="macos apple inc. macos 15 sequoia"><h3>macOS 15 Sequoia</h3><div class="btns"><a class="btn" href="https://support.apple.com/102662" target="_blank" rel="noopener noreferrer" title="Download macOS 15 Sequoia – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,4 GB)</span></a></div></div><div class="rel" data-s="macos apple inc. macos 14 sonoma"><h3>macOS 14 Sonoma</h3><div class="btns"><a class="btn" href="https://support.apple.com/102662" target="_blank" rel="noopener noreferrer" title="Download macOS 14 Sonoma – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(3,0 GB)</span></a></div></div><div class="rel" data-s="macos apple inc. macos 13 ventura"><h3>macOS 13 Ventura</h3><div class="btns"><a class="btn" href="https://support.apple.com/102662" target="_blank" rel="noopener noreferrer" title="Download macOS 13 Ventura – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(2,4 GB)</span></a></div></div><div class="rel" data-s="macos apple inc. macos 12 monterey"><h3>macOS 12 Monterey</h3><div class="btns"><a class="btn" href="https://support.apple.com/102662" target="_blank" rel="noopener noreferrer" title="Download macOS 12 Monterey – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(2,0 GB)</span></a></div></div><div class="rel" data-s="macos apple inc. macos 11 big sur"><h3>macOS 11 Big Sur</h3><div class="btns"><a class="btn" href="https://support.apple.com/102662" target="_blank" rel="noopener noreferrer" title="Download macOS 11 Big Sur – x86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">x86-64-bit</span><span class="size">(1,5 GB)</span></a></div></div></div></section>
+<section class="fam" id="reactos"><header><h2>ReactOS</h2><p>ReactOS Company</p></header><div class="rels"><div class="rel" data-s="reactos reactos company reactos 2.0"><h3>ReactOS 2.0</h3><div class="btns"><a class="btn" href="https://reactos.org/download/" target="_blank" rel="noopener noreferrer" title="Download ReactOS 2.0 – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(0,7 GB)</span></a></div></div><div class="rel" data-s="reactos reactos company reactos 1.1"><h3>ReactOS 1.1</h3><div class="btns"><a class="btn" href="https://reactos.org/download/" target="_blank" rel="noopener noreferrer" title="Download ReactOS 1.1 – X86-64-bit"><svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M10 3v9m0 0-3.5-3.5M10 12l3.5-3.5M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="arch">X86-64-bit</span><span class="size">(0,5 GB)</span></a></div></div></div></section>
+      <p class="empty" id="empty">No system found. Try another name, or use “Add System” below.</p>
+    </div>
+  </section>
+
+  <section class="block" id="add-system">
+    <div class="wrap">
+      <h2 class="sect-title">Add System To metaiso.net</h2>
+      <div class="panel">
+        <form id="addForm" novalidate>
+          <div class="field"><label for="f-name">Name And Surname</label><input id="f-name" type="text" autocomplete="name"></div>
+          <div class="field"><label for="f-os">Name Of OS <span class="req">*</span></label><input id="f-os" type="text" required></div>
+          <fieldset>
+            <div class="legend">OS Family <span class="req">*</span></div>
+            <div class="radios">
+              <label><input type="radio" name="family" value="Linux" required> Linux</label>
+              <label><input type="radio" name="family" value="Unix"> Unix</label>
+              <label><input type="radio" name="family" value="BSD"> BSD</label>
+              <label><input type="radio" name="family" value="QEMU"> QEMU</label>
+              <label><input type="radio" name="family" value="Other"> Other</label>
+            </div>
+          </fieldset>
+          <div class="field"><label for="f-src">Source Code URL</label><input id="f-src" type="url" placeholder="https://"></div>
+          <div class="field"><label for="f-ver">Version <span class="req">*</span></label><input id="f-ver" type="text" required></div>
+          <div class="field"><label for="f-iso">(.iso) File URL <span class="req">*</span></label><input id="f-iso" type="url" placeholder="https://" required></div>
+          <div class="field"><label for="f-co">Company / Owner <span class="req">*</span></label><input id="f-co" type="text" required></div>
+          <p class="status" id="status" role="status"></p>
+          <button class="cta" type="submit">ADD</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <h2 class="sect-title">About Us</h2>
+      <div class="cols">
+        <div>
+          <p>METAISO.net is well-known operating systems archive with newest versions to download, Like Windows,MacOS,Linux and others.</p>
+          <p>Best Source To download systems safety with SHA-256 encryption.</p>
+          <p>Best Way is you can add missing system in to our form on the site.</p>
+          <p>All rights to system copyright belongs to respective owners.</p>
+        </div>
+        <div>
+          <h3 class="faq-q" style="font:700 1.3rem var(--display);margin-bottom:6px">FAQ</h3>
+          <details>
+            <summary>1. How to add missing system?</summary>
+            <p>On Site click (“Add System”) and fill the form, your report is get checked about 72h or more.</p>
+          </details>
+          <details>
+            <summary>2. Is Files are legal?</summary>
+            <p>Yes, All systems are reviewed by our team and get verifed status.</p>
+          </details>
+          <details>
+            <summary>3. Why Site looks old?</summary>
+            <p>Our site „old style” is part of our orginal style.</p>
+          </details>
+          <details>
+            <summary>4. How to download iso File?</summary>
+            <p>On site click search and type your wanted system, then click: <a class="btn" href="#list" style="padding:4px 12px;font-size:.88rem"><span class="arch">x86-64-bit</span><span class="size">(1,0 GB)</span></a> Button and wait until it downloads.</p>
+          </details>
+          <details>
+            <summary>5. Who are copyright owner of this site?</summary>
+            <p>(C) 2026 Meta ISO Group Collective (Jim Seal)</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="support">
+    <div class="wrap">
+      <h2 class="sect-title">SUPPORT US</h2>
+      <div class="panel">
+        <p style="margin:0;max-width:60ch">Our site works as non-profit company, so service need your help,<br>To work without ad’s please support us as donate, to keep us work.</p>
+        <p style="margin:8px 0 0;color:var(--muted)">Donation is 100% optional, you can still use our site for free.</p>
+        <div class="amounts" id="amounts" role="group" aria-label="Donation amount">
+          <button type="button" aria-pressed="false" data-v="5">5 $</button>
+          <button type="button" aria-pressed="false" data-v="10">10 $</button>
+          <button type="button" aria-pressed="false" data-v="20">20 $</button>
+          <button type="button" aria-pressed="false" data-v="50">50 $</button>
+          <button type="button" aria-pressed="false" data-v="100">100 $</button>
+          <button type="button" aria-pressed="false" data-v="other">Other</button>
+        </div>
+        <button class="cta" type="button" id="donate">DONATE</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">(C) 2026 Meta ISO Group Collective (Jim Seal) · All rights to system copyright belongs to respective owners.</div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  var q=document.getElementById('q'),
+      fams=[].slice.call(document.querySelectorAll('.fam')),
+      empty=document.getElementById('empty'),
+      chips=document.getElementById('chips');
+
+  function filter(){
+    var t=q.value.trim().toLowerCase(), any=false;
+    fams.forEach(function(f){
+      var shown=0;
+      [].forEach.call(f.querySelectorAll('.rel'),function(r){
+        var ok=!t||r.dataset.s.indexOf(t)>-1;
+        r.style.display=ok?'':'none';
+        if(ok)shown++;
+      });
+      f.style.display=shown?'':'none';
+      if(shown)any=true;
+    });
+    empty.classList.toggle('show',!any);
+    chips.style.display=t?'none':'';
+  }
+  q.addEventListener('input',filter);
+
+  var toastEl=document.getElementById('toast'),tt;
+  function toast(m){
+    toastEl.textContent=m;toastEl.classList.add('show');
+    clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove('show')},3200);
+  }
+
+  // add-system form
+  var form=document.getElementById('addForm'),status=document.getElementById('status');
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var missing=[];
+    if(!document.getElementById('f-os').value.trim())missing.push('Name Of OS');
+    if(!form.querySelector('input[name=family]:checked'))missing.push('OS Family');
+    if(!document.getElementById('f-ver').value.trim())missing.push('Version');
+    var iso=document.getElementById('f-iso').value.trim();
+    if(!/^https?:\/\/.+/i.test(iso))missing.push('(.iso) File URL (must start with https://)');
+    if(!document.getElementById('f-co').value.trim())missing.push('Company / Owner');
+    status.classList.add('show');
+    if(missing.length){
+      status.textContent='Please fill in: '+missing.join(', ')+'.';
+      return;
+    }
+    status.textContent='Thanks! Your report is get checked about 72h or more.';
+    form.reset();
+  });
+
+  // donate
+  var amt=null,btns=[].slice.call(document.querySelectorAll('#amounts button'));
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      amt=b.dataset.v;
+      btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    });
+  });
+  document.getElementById('donate').addEventListener('click',function(){
+    if(!amt){toast('Pick an amount first.');return;}
+    toast('Thank you! Donation page is not connected yet.');
+  });
+})();
+</script>
+</body>
+</html>
