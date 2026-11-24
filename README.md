@@ -4,11 +4,11 @@
 
 **Operating systems archive with the newest versions to download.**
 
-[![GitHub Pages](https://shields.io)](https://github.io)
+[![Website](https://shields.io)](https://github.io)
 [![License](https://shields.io)](LICENSE)
 [![OS Families](https://shields.io)](#-supported-operating-systems)
 [![Releases](https://shields.io)](#-supported-operating-systems)
-[![Verification](https://shields.io)](#-features)
+[![Checksums](https://shields.io)](#-features)
 
 ---
 
@@ -20,7 +20,7 @@
 
 ## ✨ Features
 
-* **🚀 Extensive Archive:** Over **59 releases** categorized into **24 distinct OS families** — from modern Linux distributions to legacy Windows builds.
+* **🚀 Extensive Archive:** Over **100 releases** categorized into **20 distinct OS families** — from modern Linux distributions to legacy Windows builds.
 * **🔐 SHA-256 Verified:** Every listed ISO release is reviewed and checked with **SHA-256** checksums to ensure file integrity and safety.
 * **🏗️ Multi-Architecture Support:** Direct downloads separated by architecture (`x86-64-bit`, `ARM64`, and `32-bit`) with clear file size indicators.
 * **⚡ Instant Search:** Built-in client-side filtering to locate any operating system or specific release in milliseconds.
@@ -31,7 +31,7 @@
 
 ## 🗂️ Supported Operating Systems
 
-The archive currently tracks **24 OS families**:
+The archive currently tracks **20 OS families**:
 
 | Category | Operating Systems Included |
 | :--- | :--- |
@@ -50,7 +50,7 @@ The archive currently tracks **24 OS families**:
 This project is built as a fast, zero-dependency static web application and deployed automatically via **GitHub Actions** to **GitHub Pages**.
 
 ```text
-meta-iso/
+meta-iso.github.io/
 ├── .github/
 │   └── workflows/
 │       └── static.yml    # Automated GitHub Pages deployment workflow
@@ -76,4 +76,3 @@ Missing a distribution or a specific version? You can submit a new ISO entry dir
 * **Repository License:** Distributed under the **Apache-2.0 License**. See [`LICENSE`](LICENSE) for more information.
 * **Site Copyright:** © 2026 **Meta ISO Group Collective (Jim Seal)**.
 * *All operating system trademarks, logos, and ISO copyrights belong to their respective owners.*
-
